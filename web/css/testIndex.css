@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#test_top {
+    width: 100%;
+    height: 110px;
+    border-bottom: 1px solid #666666;
+}
+#index {
+    margin: 10px 0 0 10px;
+}
+#index_test {
+    font-size: 18px;
+}
+#test_type {
+    width: 100%;
+    height: 30px;
+    position: relative;
+    margin: 10px 0 0 10px;
+}
+#test_type>li {
+    width: 70px;
+    height: 30px;
+    float: left;
+    border: none;
+    line-height: 30px;
+    font-size: 14px;
+}
+#classify_test {
+    font-size: 14px;
+    margin: 10px 0 0 10px;
+}
+#test_main{
+    width: 100%;
+    height: 789px;
+    background-color: #ECECEC;
+    overflow: hidden;
+}
+#test_middle {
+    width: 1220px;
+    height: 100%;
+    margin: 6px auto;
+    background-color: white;
+    overflow: hidden;
+}
+#test_middle h3 {
+    padding: 10px 0 8px 20px;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #666;
+}
+#test_table {
+    width: 100%;
+    border-collapse:collapse;
+}
+#test_table td{
+    text-align: center;
+    border-bottom: 1px solid #666666;
+    padding: 10px 0 10px 0;
+    word-break:break-all;
+}
+#test_table th{
+    text-align: center;
+    border-bottom: 1px solid #666666;
+    padding: 10px 0 10px 0;
+}
+.content {
+    width: 40%;
+}
+.qian3 {
+    width: 10%
+}
+.hou2 {
+    width: 15%;
+}
+.edit,.dele{
+    padding: 3px;
+    margin-right: 5px;
+}
+.hide_id {
+    display: none;
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加试题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #addTest_top {
+            width: 100%;
+            height: 36px;
+            border-bottom: 1px solid #666666;
+            background-color: white;
+            overflow: hidden;
+            padding-bottom: 10px;
+        }
+        #addTest_top>p {
+            margin: 10px 0 0 10px;
+        }
+        #s1 {
+            font-size: 18px;
+        }
+
+        #addTest_main {
+            width: 100%;
+            height: 900px;
+            background-color: rgb(236,236,236);
+            overflow: hidden;
+        }
+        #addTest_middle {
+            width: 1220px;
+            height: 1000px;
+            margin: 6px auto;
+            background-color: white;
+            overflow: hidden;
+        }
+        #addTest_main h3 {
+            padding: 10px 0 8px 20px;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #666;
+        }
+        #main_title {
+            position: relative;
+            margin-top: 10px;
+        }
+        #main_title li{
+            width: 120px;
+            height: 24px;
+            float: left;
+            padding-bottom: 15px;
+            /*border: none;*/
+        }
+        #l0 {
+            border: none;
+        }
+        #l1 {
+            background-color: darkgray;
+            border: 1px solid #666666;
+        }
+        #l2 {
+            border: 1px solid #666666;
+            border-left: none;
+        }
+        #left_table {
+            width: 700px;
+            height: 800px;
+            /*border: 1px solid red;*/
+            margin: 60px 0 0 27px;
+        }
+        #right_right {
+            width: 700px;
+            height: 800px;
+            /*border: 1px solid green;*/
+            margin: 60px 0 0 27px;
+            display: none;
+        }
+        .t1 {
+            width: 89px;
+        }
+        .t2 {
+            width: 300px;
+        }
+        #left_table td{
+            margin-top: 10px;
+        }
+        .heig {
+            height: 40px;
+        }
+        #left_but,#right_but {
+            width: 80px;
+            height: 30px;
+            padding: 4px;
+            background-color: rgb(77,167,253);
+            color: white;
+            outline: none;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="addTest_top">
+        <p><span id="s1">首页</span> > <span>题库管理</span> > <span>试题管理</span></p>
+    </div>
+    <div id="addTest_main">
+        <div id="addTest_middle">
+            <h3></h3>
+            <ul id="main_title">
+                <li id="l0">试题类型</li>
+                <li id="l1">单项选择题</li>
+                <li id="l2">简答题</li>
+            </ul>
+            <div id="left_table">
+                <table>
+                    <tr>
+                        <td class="t1">试题内容</td>
+                        <td class="t2"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1"></td>
+                        <td class="t2">
+                            <textarea class="area" cols="60" rows="7"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1"></td>
+                        <td class="t2">A <br>
+                            <textarea class="area" cols="60" rows="6"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1"></td>
+                        <td class="t2">B<br>
+                            <textarea class="area" cols="60" rows="6"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1"></td>
+                        <td class="t2">C<br>
+                            <textarea class="area" cols="60" rows="6"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1"></td>
+                        <td class="t2">D<br>
+                            <textarea class="area" cols="60" rows="6"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig">正确答案</td>
+                        <td class="t2 heig" id="anser_true">
+                            <input type="radio" name="anser" value="A">A
+                            <input type="radio" name="anser" value="B">B
+                            <input type="radio" name="anser" value="C">C
+                            <input type="radio" name="anser" value="D">D
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig">参考分数</td>
+                        <td class="t2 heig"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig">试题分类</td>
+                        <td class="t2 heig">
+                            <select id="left_sele">
+                                <option id="left_opt">请输入分类</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig"></td>
+                        <td class="t2 heig">
+                            <button id="left_but">提&nbsp&nbsp交</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="right_right">
+                <table>
+                    <tr>
+                        <td class="t1">试题内容</td>
+                        <td class="t2"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1"></td>
+                        <td class="t2">
+                            <textarea class="area" cols="60" rows="7"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1">答案解析</td>
+                        <td class="t2"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig"></td>
+                        <td class="t2 heig">
+                            <textarea class="area" cols="60" rows="7"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig">参考分数</td>
+                        <td class="t2 heig"><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig">试题分类</td>
+                        <td class="t2 heig">
+                            <select id="right_sele">
+                                <option id="right_opt">请输入分类</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="t1 heig"></td>
+                        <td class="t2 heig">
+                            <button id="right_but">提&nbsp&nbsp交</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    $(function () {
+        //页面加载时 动态创建select中的option
+        var jsonData = {
+            mark: "getInfo",
+        }
+        $.ajax({
+            url: "http://localhost:8080/OnLineTest/ClassifyServlet",//地址
+            type: "post",//传输方式
+            async: false,//false同步  true异步
+            data: JSON.stringify(jsonData),//将json格式转换为字符串并进行传送
+            contentType: "application/json",//接收后端传回的数据格式是json
+            dataType: "json",//传入后端的数据格式也是json
+            success: function (result) {
+                console.log("aaa"+result)
+                $(".select").children().remove();
+                for (var i=0;i<result.length;i++){
+                    $("#left_sele").append("<option>" + result[i]+ "</option>");
+                    $("#right_sele").append("<option>" + result[i]+ "</option>");
+                }
+            }
+        })
+        // flag  0添加试题(空白界面)  1编辑试题(有内容)
+        if (flag == 1){
+            $("h3").text("修改试题");
+            var jsonData1 = {
+                mark: "editTest",
+                data:hideId,
+            }
+            $.ajax({
+                url: "http://localhost:8080/OnLineTest/ClassifyServlet",//地址
+                type: "post",//传输方式
+                async: false,//false同步  true异步
+                data: JSON.stringify(jsonData1),//将json格式转换为字符串并进行传送
+                contentType: "application/json",//接收后端传回的数据格式是json
+                dataType: "json",//传入后端的数据格式也是json
+                success: function (result) {
+                    console.log(result)
+                    if(result[0].type==0){//单选题
+                        $("#l1").css("background-color","darkgray");
+                        $("#l2").css("background-color","white")
+                        $("#right_right").hide();
+                        $("#left_table").show();
+
+                        $("#left_table .area").eq(0).val(result[0].topic);
+                        $("#left_table .area").eq(1).val(result[0].optiona);
+                        $("#left_table .area").eq(2).val(result[0].optionb);
+                        $("#left_table .area").eq(3).val(result[0].optionc);
+                        $("#left_table .area").eq(4).val(result[0].optiond);
+                        switch (result[0].answer) {
+                            case "A":
+                                $("[name=anser]").eq(0).prop("checked",true);
+                                break;
+                            case "B":
+                                $("[name=anser]").eq(1).prop("checked",true);
+                                break;
+                            case "C":
+                                $("[name=anser]").eq(2).prop("checked",true);
+                                break;
+                            case "D":
+                                $("[name=anser]").eq(3).prop("checked",true);
+                                break;
+                        }
+                        $(".t2").eq(7).children().val(result[0].score);
+                        $("#left_opt").text(result[0].classify);
+                    }else {
+                        $("#l2").css("background-color","darkgray");
+                        $("#l1").css("background-color","white")
+                        $("#right_right").show();
+                        $("#left_table").hide();
+
+                        $("#right_right .area").eq(0).val(result[0].topic);
+                        $("#right_right .area").eq(1).val(result[0].answer);
+                        $(".t2").eq(14).children().val(result[0].score);
+                        $("#right_opt").text(result[0].classify);
+                    }
+                }
+            })
+        }
+    })
+    if (flag == 1) {
+        $("h3").text("修改试题");
+    }
+    if (flag == 0){//添加试题的时候才能点击
+        $("h3").text("添加试题");
+        //单选题
+        $("#l1").click(function () {
+            $("#inner").css("height","900px");
+            $("#addTest_main").css("height","900px");
+            $(this).css("background-color","darkgray");
+            $("#l2").css("background-color","white")
+            $("#right_right").hide();
+            $("#left_table").show();
+        })
+        //简答题
+        $("#l2").click(function () {
+            $("#inner").css("height","560px");
+            $("#addTest_main").css("height","560px");
+            $(this).css("background-color","darkgray");
+            $("#l1").css("background-color","white")
+            $("#right_right").show();
+            $("#left_table").hide();
+        })
+    }
+
+    //单选题提交
+    $("#left_but").click(function () {
+        var anser_true = null;
+        for (var i=0;i<$("[name=anser]").length;i++){
+            if ($("[name=anser]").eq(i).prop("checked")){
+                anser_true=$("[name=anser]").eq(i).val();
+            }
+        }
+        var jsonData = {
+            mark:"addSingle",
+            data:{
+                type:0,
+                topic:$("#left_table .area").eq(0).val(),
+                optiona:$("#left_table .area").eq(1).val(),
+                optionb:$("#left_table .area").eq(2).val(),
+                optionc:$("#left_table .area").eq(3).val(),
+                optiond:$("#left_table .area").eq(4).val(),
+                answer:anser_true,
+                score:Number($(".t2").eq(7).children().val()),
+                classify:$(".t2").eq(8).children().val(),
+                id:hideId,
+                changeTestFlag:flag
+            }
+        }
+        $.ajax({
+            url:"http://localhost:8080/OnLineTest/ClassifyServlet",//地址
+            type:"post",//传输方式
+            data:JSON.stringify(jsonData),//将json格式转换为字符串并进行传送
+            contentType:"application/json",//接收后端传回的数据格式是json
+            dataType:"json",//传入后端的数据格式也是json
+            success:function (result) {
+                console.log(result);
+                if (result.mark) {
+                    if (flag==0) alert("添加成功！");
+                    else alert("修改成功！");
+                } else {
+                    if (flag==0) alert("添加失败！ ");
+                    else alert("修改失败！ ");
+                }
+            }
+        })
+    })
+    //简答题提交
+    $("#right_but").click(function () {
+        var jsonData = {
+            mark:"addShort",
+            data:{
+                type:1,
+                topic:$("#right_right .area").eq(0).val(),
+                answer:$("#right_right .area").eq(1).val(),
+                score:Number($(".t2").eq(14).children().val()),
+                classify:$(".t2").eq(15).children().val(),
+                changeTest:flag
+            }
+        }
+        console.log(jsonData.data);
+        $.ajax({
+            url:"http://localhost:8080/OnLineTest/ClassifyServlet",//地址
+            type:"post",//传输方式
+            data:JSON.stringify(jsonData),//将json格式转换为字符串并进行传送
+            contentType:"application/json",//接收后端传回的数据格式是json
+            dataType:"json",//传入后端的数据格式也是json
+            success:function (result) {
+                console.log(result);
+                if (result.mark) {
+                    //添加成功
+                    alert("添加成功！")
+                } else {
+                    //添加失败
+                    alert("添加失败！ ")
+                }
+            }
+        })
+    })
+</script>
+</html>

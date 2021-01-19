@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="./css/download/iconfont.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+<body>
+    <div id="top" >
+        <div class="form" >
+            <h2>登录</h2>
+            <input type="text" class="iconfont inp1" placeholder="&#xe66d;&nbsp账号" >
+            <input type="password" class="iconfont inp2" placeholder="&#xe66c;&nbsp密码" >
+            <button id="log">登&nbsp&nbsp录</button>
+        </div>
+        <div class="foot">
+            <span class="no">没有账号？</span> <a href="#" id="lj">立即注册</a> <a href="#" class="wj">忘记密码？</a>
+        </div>
+    </div>
+    <div id="buttom">
+        <div class="form">
+            <h2>注册</h2>
+            <span id="acchave">此账号已注册</span>
+            <input type="text" class="iconfont inp3" placeholder="&#xe66d;&nbsp请输入账号 6~12位" >
+            <input type="password" class="iconfont inp2" placeholder="&#xe66c;&nbsp请输入密码 6~12位" >
+            <input type="email" class="iconfont inp2" placeholder="&#xe648;&nbsp请输入邮箱" >
+            <input type="phone" class="iconfont inp2" placeholder="&#xe608;&nbsp请输入手机号" >
+            <button id="zhuce">注&nbsp&nbsp册</button>
+        </div>
+        <div class="foot">
+            <span>已有账号？</span> <a href="#" id="lj2">立即登录</a>
+        </div>
+    </div>
+</body>
+<script src="./js/jquery-3.5.1.min.js"></script>
+<script>
+<!--  页面动态效果  -->
+//  登录与注册的切换
+    $("#lj").click(function () {
+        $("#buttom").attr("class","animated flipInY");
+        $("#top").hide();
+        $("#buttom").show();
+    })
+    $("#lj2").click(function () {
+        $("#top").attr("class","animated flipInY");
+        $("#buttom").hide();
+        $("#top").show();
+    })
+//验证账号密码的格式  并改变边框的格式
+    var timer = null;
+    $("input:first").focus(function () {
+        var that = $(this);
+        timer = window.setInterval(function () {
+            if (that.val().length>=6 && that.val().length<=12){
+                that.css("outline-color","greenyellow");
+            }else {
+                that.css("outline-color","red");
+            }
+        },100)
+    }).blur(function () {
+        clearInterval(timer);
+    })
+
+    $("input:eq(1)").focus(function () {
+        var that = $(this);
+        timer = window.setInterval(function () {
+            if (that.val().length>=6 && that.val().length<=12){
+                that.css("outline-color","greenyellow");
+            }else {
+                that.css("outline-color","red");
+            }
+        },100)
+    }).blur(function () {
+        clearInterval(timer);
+    })
+
+</script>
+<script src="js/login.js"></script>
+</html>
